@@ -1,0 +1,25 @@
+### model
+model_name_or_path: /root/autodl-tmp/Llama-2-7b-chat-hf
+adapter_name_or_path: /root/autodl-tmp/llama-factory/mp_llama2_1
+
+### method
+stage: sft
+do_predict: true
+finetuning_type: lora
+
+### dataset
+dataset: mp_test
+template: llama2
+cutoff_len: 2048
+# max_samples: 50
+overwrite_cache: true
+preprocessing_num_workers: 16
+
+### output
+output_dir: /root/autodl-tmp/llama-factory/mp_test_prediction_llama2_1
+overwrite_output_dir: true
+
+### eval
+per_device_eval_batch_size: 1
+predict_with_generate: true
+ddp_timeout: 180000000
